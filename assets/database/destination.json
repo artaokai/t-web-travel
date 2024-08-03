@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Kuta Beach",
+        "kategori": "beach",
+        "duration": 5,
+        "price": 400,
+        "img": "/assets/img/destination/beach/kuta.jpg",
+        "desc": "Pantai Kuta di Lombok menawarkan pemandangan pantai yang memukau dengan pasir putih yang lembut dan air laut yang jernih. Tempat ini sangat cocok untuk berselancar dan berjemur di bawah matahari."
+    },
+    {
+        "title": "Gili Trawangan",
+        "kategori": "beach",
+        "duration": 3,
+        "price": 500,
+        "img": "/assets/img/destination/beach/trawangan.jpg",
+        "desc": "Gili Trawangan adalah pulau kecil yang indah dengan pantai berpasir putih dan air laut yang jernih. Cocok untuk snorkeling dan diving."
+    }
+]

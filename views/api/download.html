@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>Yanz-Api's</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="assets/css/vendor.min.css" rel="stylesheet">
+    <link href="assets/css/app.min.css" rel="stylesheet">
+    <link href="assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="app">
+        <div id="header" class="app-header">
+            <div class="desktop-toggler">
+                <button type="button" class="menu-toggler" data-toggle-class="app-sidebar-collapsed"
+                    data-dismiss-class="app-sidebar-toggled" data-toggle-target=".app">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <div class="mobile-toggler">
+                <button type="button" class="menu-toggler" data-toggle-class="app-sidebar-mobile-toggled"
+                    data-toggle-target=".app">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <div class="brand">
+                <a href="" class="brand-logo">
+                    <span class="brand-img">
+                        <span class="brand-img-text text-theme">A</span>
+                    </span>
+                    <span class="brand-text">Yanz-Api's</span>
+                </a>
+            </div>
+            <div class="menu">
+                <div class="menu-item dropdown">
+                    <a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app"
+                        class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-search nav-icon"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-grid-3x3-gap nav-icon"></i>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu fade dropdown-menu-end w-300px text-center p-0 mt-1">
+                        <div class="row row-grid gx-0">
+                            <div class="col-4">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalLg"
+                                    class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div class="position-relative">
+                                        <i
+                                            class="bi bi-circle-fill position-absolute text-theme top-0 mt-n2 me-n2 fs-6px d-block text-center w-100"></i>
+                                        <i class="bi bi-envelope h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Chat Box</div>
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <a href="generator" target="_blank"
+                                    class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div class="position-relative">
+                                        <!--i class="bi bi-circle-fill position-absolute text-theme top-0 mt-n2 me-n2 fs-6px d-block text-center w-100"></i-->
+                                        <i class="bi bi-robot h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Ai-Generator</div>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="game" target="_blank" class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div>
+                                        <i class="bi bi-controller h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Game</div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div class="row row-grid gx-0"><div class="col-4"><a href="helper.html" class="dropdown-item text-decoration-none p-3 bg-none"><div><i class="bi bi-terminal h2 opacity-5 d-block my-1"></i></div><div class="fw-500 fs-10px text-inverse">HELPER</div></a></div><div class="col-4"><a href="settings.html" class="dropdown-item text-decoration-none p-3 bg-none"><div class="position-relative"><i class="bi bi-circle-fill position-absolute text-theme top-0 mt-n2 me-n2 fs-6px d-block text-center w-100"></i><i class="bi bi-sliders h2 opacity-5 d-block my-1"></i></div><div class="fw-500 fs-10px text-inverse">SETTINGS</div></a></div><div class="col-4"><a href="widgets.html" class="dropdown-item text-decoration-none p-3 bg-none"><div><i class="bi bi-collection-play h2 opacity-5 d-block my-1"></i></div><div class="fw-500 fs-10px text-inverse">WIDGETS</div></a></div></div>-->
+                    </div>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-bell nav-icon"></i>
+                        </div>
+                        <div class="menu-badge bg-theme"></div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end mt-1 w-300px fs-11px pt-1">
+                        <h6 class="dropdown-header fs-10px mb-1">NOTIFICATIONS</h6>
+                        <div class="dropdown-divider mt-1"></div>
+                        <a href="tiktok" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">Added new features [Downloader Tiktok]</div>
+                                <div class="small text-inverse text-opacity-50">01 Januari 2024</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <!--<a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold"><div class="fs-20px"><i class="bi bi-bag text-theme"></i></div><div class="flex-1 flex-wrap ps-3"><div class="mb-1 text-inverse">NEW ORDER RECEIVED ($1,299)</div><div class="small text-inverse text-opacity-50">JUST NOW</div></div><div class="ps-2 fs-16px"><i class="bi bi-chevron-right"></i></div></a><a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold"><div class="fs-20px w-20px"><i class="bi bi-person-circle text-theme"></i></div><div class="flex-1 flex-wrap ps-3"><div class="mb-1 text-inverse">3 NEW ACCOUNT CREATED</div><div class="small text-inverse text-opacity-50">2 MINUTES AGO</div></div><div class="ps-2 fs-16px"><i class="bi bi-chevron-right"></i></div></a><a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold"><div class="fs-20px w-20px"><i class="bi bi-gear text-theme"></i></div><div class="flex-1 flex-wrap ps-3"><div class="mb-1 text-inverse">SETUP COMPLETED</div><div class="small text-inverse text-opacity-50">3 MINUTES AGO</div></div><div class="ps-2 fs-16px"><i class="bi bi-chevron-right"></i></div></a>-->
+                        <a href="weebs" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">Added new features [Komik Search]</div>
+                                <div class="small text-inverse text-opacity-50">23 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-grid text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">THEMPLATE INSTALLATION DONE</div>
+                                <div class="small text-inverse text-opacity-50">19 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="tools" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">Added new features [Bing-Ai]</div>
+                                <div class="small text-inverse text-opacity-50">01 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <!--<a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold"><div class="fs-20px w-20px"><i class="bi bi-credit-card text-theme"></i></div><div class="flex-1 flex-wrap ps-3"><div class="mb-1 text-inverse">PAYMENT METHOD ENABLED</div><div class="small text-inverse text-opacity-50">10 MINUTES AGO</div></div><div class="ps-2 fs-16px"><i class="bi bi-chevron-right"></i></div></a>-->
+                        <hr class="my-0">
+                        <div class="py-10px mb-n2 text-center">
+                            <a href="#" class="text-decoration-none fw-bold">SEE ALL</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-img online">
+                            <img src="assets/img/user/profile.jpg" alt="Profile" height="60">
+                        </div>
+                        <div class="menu-text d-sm-block d-none w-170px">
+                            <span>[ Api's Skizo || Team ] </span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalKey"
+                            class="dropdown-item d-flex align-items-center">
+                            Change Apikey <i class="bi bi-key ms-auto text-theme fs-16px my-n1"></i>
+                        </button>
+                        <a class="dropdown-item d-flex align-items-center" href="pricing">
+                            Register<i class="fas fa-user-plus ms-auto text-theme fs-16px my-n1"></i>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item d-flex align-items-center" href="login">
+                            Login <i class="bi bi-toggle-on ms-auto text-theme fs-16px my-n1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <form class="menu-search" method="POST" name="header_search_form">
+                <div class="menu-search-container">
+                    <div class="menu-search-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <div class="menu-search-input">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search menu...">
+                    </div>
+                    <div class="menu-search-icon">
+                        <a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app">
+                            <i class="bi bi-x-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- start body -->
+        <div id="sidebar" class="app-sidebar">
+            <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+                <div class="menu">
+                    <div class="menu-header">Navigation</div>
+                    <div class="menu-item">
+                        <a href="/" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-cpu"></i>
+                            </span>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="pricing" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </span>
+                            <span class="menu-text">Pricing</span>
+                        </a>
+                    </div>
+                    <div class="menu-item has-sub">
+                        <a href="" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </span>
+                            <span class="menu-text">Information</span>
+                            <span class="menu-caret">
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="menu-submenu">
+                            <div class="menu-item">
+                                <a href="https://whatsapp.com/channel/0029VaElnwwC6Zvi4UeZyH3s" class="menu-link">
+                                    <span class="menu-text">Whatsapp Channel</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="https://chat.whatsapp.com/Ld8YwC9TpLh0UInNYASq5f" class="menu-link">
+                                    <span class="menu-text">Whatsapp Community</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="https://chat.whatsapp.com/JJqVCyaUEEX0DfrHpUHW2F" class="menu-link">
+                                    <span class="menu-text">Whatsapp Groups</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-header">All Routers</div>
+                    <div class="menu-item">
+                        <a href="generator" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-robot"></i>
+                            </span>
+                            <span class="menu-text">Ai-Generator</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="convert" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-easel2"></i>
+                            </span>
+                            <span class="menu-text">Convert</span>
+                        </a>
+                    </div>
+                    <div class="menu-item active">
+                        <a href="download" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-cloud-arrow-down"></i>
+                            </span>
+                            <span class="menu-text">Download</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="game" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-controller"></i>
+                            </span>
+                            <span class="menu-text">Game</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="tools" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-tools"></i>
+                            </span>
+                            <span class="menu-text">Tools</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="weebs" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-browser-edge"></i>
+                            </span>
+                            <span class="menu-text">Weebs</span>
+                        </a>
+                    </div>
+                    <div class="menu-item has-sub">
+                        <a href="javascript:;" class="menu-link">
+                            <div class="menu-icon">
+                                <i class="bi bi-images"></i>
+                                <span
+                                    class="w-5px h-5px rounded-3 bg-theme position-absolute top-0 end-0 mt-3px me-3px"></span>
+                            </div>
+                            <div class="menu-text d-flex align-items-center">Anime Pictures</div>
+                            <span class="menu-caret">
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="menu-submenu">
+                            <div class="menu-item">
+                                <a href="sfw" class="menu-link">
+                                    <div class="menu-text">Safe For Work</div>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="nsfw" class="menu-link">
+                                    <div class="menu-text">Not Safe For Work</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-divider"></div>
+                    <div class="menu-header">Admin Robots</div>
+                    <div class="menu-item">
+                        <a href="https://wa.me/+62815-8502-69230?text=/apikey+Your_Key" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </span>
+                            <span class="menu-text">BotAdmin</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="https://github.com/findme-19/milkita" target="_blank" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-github"></i>
+                            </span>
+                            <span class="menu-text">Scripty Bot</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-3 px-4 mt-auto">
+                    <a href="https://saweria.co/xxivmmiii" target="_blank" class="btn d-block btn-outline-theme">
+                        <i class="fa fa-code-branch me-2 ms-n2 opacity-5"></i>
+                        Donation
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="app-sidebar-mobile-backdrop" data-toggle-target=".app"
+            data-toggle-class="app-sidebar-mobile-toggled"></button>
+        <div id="content" class="app-content">
+            <!-- start content -->
+            <div id="responsiveTables" class="mb-5">
+                <h4>Downloader</h4>
+                <p>"Downloader" is the process of acquiring and saving data from the internet to a user's device. It
+                    involves transferring information from an online server to local storage, enabling offline access.
+                    In the context of popular applications like TikTok, Facebook, YouTube, Instagram, and others, users
+                    can download content such as videos, images, or text to be viewed or used without an active internet
+                    connection. Downloading facilitates quick and convenient access to various types of digital content.
+                </p>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table-bordered table mb-0 text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Name Feature</th>
+                                        <th scope="col">Request Method</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Query Parameter</th>
+                                        <th scope="col">Optional Parameter</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">01</th>
+                                        <td>MediaFire</td>
+                                        <td>GET</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/mediafiredl?url=&apikey=APIKEY_LU" target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">02</th>
+                                        <td>Tiktok Downloader</td>
+                                        <td>GET</td>
+                                        <td>Tiktok downloader no watermark</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/tiktok?url=&apikey=YOUR_KEY" target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">03</th>
+                                        <td>Tiktok Search</td>
+                                        <td>GET</td>
+                                        <td>random fyp tiktok video search</td>
+                                        <td>search, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/ttsearch?search=dia(alex)&apikey=YOUR_KEY" target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">04</th>
+                                        <td>Tiktok Trending</td>
+                                        <td>GET</td>
+                                        <td>Random tiktok trending videos</td>
+                                        <td>region, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/tttrending?region=ID&apikey=YOUR_KEY" target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">05</th>
+                                        <td>Instagram downloader</td>
+                                        <td>GET</td>
+                                        <td>Instagram downloader (igtv, post, video, reel, etc)</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/igdl?url=https://www.instagram.com/reel/Cv9sK6Egac0==&apikey=YOUR_KEY"
+                                                target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">06</th>
+                                        <td>Facebook</td>
+                                        <td>GET</td>
+                                        <td>Facebook downloader</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/facebook?url=&apikey=YOUR_KEY" target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">07</th>
+                                        <td>Twitter</td>
+                                        <td>GET</td>
+                                        <td>Twitter downloader</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/twitterdl?url=https://twitter.com/LucuLucuVideo/status/1650394642490470400?s=20&apikey=YOUR_KEY"
+                                                target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">08</th>
+                                        <td>Youtube y2mate</td>
+                                        <td>GET</td>
+                                        <td>Youtube downloader</td>
+                                        <td>url, apikey</td>
+                                        <td>-</td>
+                                        <td>Active</td>
+                                        <td class="text-theme">
+                                            <a href="api/y2mate?url=https://youtu.be/xO9-JS6V2zk?si=fN1EkE8t6CL5Bl9w&apikey=YOUR_KEY"
+                                                target="_blank">
+                                                <i class="bi bi-play"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!--<tr>
+								<th scope="row">09</th>
+								<td>Youtube yt1s</td>
+								<td>GET</td>
+								<td>Youtube downloader</td>
+								<td>url, apikey</td>
+								<td>-</td>
+								<td>Active</td>
+								<td class="text-theme">
+									<a href="api/yt1s?url=https://youtu.be/xO9-JS6V2zk?si=fN1EkE8t6CL5Bl9w&apikey=YOUR_KEY" target="_blank">
+										<i class="bi bi-play"></i>
+									</a>
+								</td>
+							</tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- end body -->
+        <div class="app-theme-panel">
+            <div class="app-theme-panel-container">
+                <a href="javascript:;" data-toggle="theme-panel-expand" class="app-theme-toggle-btn">
+                    <i class="bi bi-sliders"></i>
+                </a>
+                <div class="app-theme-panel-content">
+                    <div class="small fw-bold text-inverse mb-1">Display Mode</div>
+                    <div class="card mb-3">
+                        <div class="card-body p-2">
+                            <div class="row gx-2">
+                                <div class="col-6">
+                                    <a href="javascript:;" data-toggle="theme-mode-selector" data-theme-mode="dark"
+                                        class="app-theme-mode-link active">
+                                        <div class="img">
+                                            <img src="assets/img/mode/dark.jpg" class="object-fit-cover" height="76"
+                                                width="76" alt="Dark Mode">
+                                        </div>
+                                        <div class="text">Dark</div>
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="javascript:;" data-toggle="theme-mode-selector" data-theme-mode="light"
+                                        class="app-theme-mode-link">
+                                        <div class="img">
+                                            <img src="assets/img/mode/light.jpg" class="object-fit-cover" height="76"
+                                                width="76" alt="Light Mode">
+                                        </div>
+                                        <div class="text">Light</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                    <div class="small fw-bold text-inverse mb-1">Theme Color</div>
+                    <div class="card mb-3">
+                        <div class="card-body p-2">
+                            <div class="app-theme-list">
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-pink"
+                                        data-theme-class="theme-pink" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Pink">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-red"
+                                        data-theme-class="theme-red" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Red">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-warning"
+                                        data-theme-class="theme-warning" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Orange">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-yellow"
+                                        data-theme-class="theme-yellow" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Yellow">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-lime"
+                                        data-theme-class="theme-lime" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Lime">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-green"
+                                        data-theme-class="theme-green" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Green">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item active">
+                                    <a href="javascript:;" class="app-theme-list-link bg-teal" data-theme-class=""
+                                        data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                        data-bs-container="body" data-bs-title="Default">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-info"
+                                        data-theme-class="theme-info" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cyan">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-primary"
+                                        data-theme-class="theme-primary" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Blue">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-purple"
+                                        data-theme-class="theme-purple" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Purple">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-indigo"
+                                        data-theme-class="theme-indigo" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Indigo">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-list-item">
+                                    <a href="javascript:;" class="app-theme-list-link bg-gray-100"
+                                        data-theme-class="theme-gray-200" data-toggle="theme-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Gray">&nbsp;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                    <div class="small fw-bold text-inverse mb-1">Theme Cover</div>
+                    <div class="card">
+                        <div class="card-body p-2">
+                            <div class="app-theme-cover">
+                                <div class="app-theme-cover-item active">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-1.jpg)"
+                                        data-theme-cover-class="" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Default">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-2.jpg)"
+                                        data-theme-cover-class="bg-cover-2" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 2">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-3.jpg)"
+                                        data-theme-cover-class="bg-cover-3" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 3">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-4.jpg)"
+                                        data-theme-cover-class="bg-cover-4" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 4">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-5.jpg)"
+                                        data-theme-cover-class="bg-cover-5" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 5">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-6.jpg)"
+                                        data-theme-cover-class="bg-cover-6" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 6">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-7.jpg)"
+                                        data-theme-cover-class="bg-cover-7" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 7">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-8.jpg)"
+                                        data-theme-cover-class="bg-cover-8" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 8">&nbsp;</a>
+                                </div>
+                                <div class="app-theme-cover-item">
+                                    <a href="javascript:;" class="app-theme-cover-link"
+                                        style="background-image:url(assets/img/cover/cover-thumb-9.jpg)"
+                                        data-theme-cover-class="bg-cover-9" data-toggle="theme-cover-selector"
+                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body"
+                                        data-bs-title="Cover 9">&nbsp;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+        <!-- start popup -->
+        <div class="modal fade" id="modalLg">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Messages</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-body text-inverse text-center">
+                                <div class="fs-16px fw-bold">Space Chat</div>
+                                <div class="fs-13px mb-3">Let's Talking</div>
+                                <iframe src="https://www3.cbox.ws/box/?boxid=3530812&boxtag=Pdvpct" width="100%"
+                                    height="450" allowtransparency="yes" allow="autoplay" frameborder="0"
+                                    marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+                            </div>
+                            <div class="list-group">
+                                <div class="list-group-item border-top-0 rounded-top-0 d-flex align-items-center p-3">
+                                    <div
+                                        class="w-40px h-40px bg-inverse bg-opacity-25 d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <div class="flex-fill px-3">
+                                        <div class="fw-bold">Total Visitors</div>
+                                        <div class="small text-inverse text-opacity-50">This Month</div>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-0">31.166 </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card-arrow -->
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalP">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">My Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-pane fade show active">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5>You Need Login To See Your Account!!!</h5>
+                                </div>
+                                <div class="card-arrow">
+                                    <div class="card-arrow-top-left"></div>
+                                    <div class="card-arrow-top-right"></div>
+                                    <div class="card-arrow-bottom-left"></div>
+                                    <div class="card-arrow-bottom-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-cover fade" id="modalKey">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="changekey_" method="POST">
+                            <h1 class="text-center">Change Key</h1>
+                            <div class="text-inverse text-opacity-50 text-center mb-4">You need Secret Key to Change
+                                your Api Key.</div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    APIKEY <span class="text-danger">*</span>
+                                </label>
+                                <input name="key" type="text"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="your apikey" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex">
+                                    <label class="form-label">
+                                        SECRET KEY <span class="text-danger">*</span>
+                                    </label>
+                                    <a href="https://wa.me/62815850269230?text=#apikey+yourkey"
+                                        class="ms-auto text-inverse text-decoration-none text-opacity-50">Forgot Your
+                                        Secret Key?</a>
+                                </div>
+                                <input type="text" name="secretKey"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="Your Secret Key" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    NEW KEY <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="newkey"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="New Key" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Change
+                                Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end popup -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+        <script src="assets/plugins/jvectormap-next/jquery-jvectormap.min.js"></script>
+        <script src="assets/plugins/jvectormap-content/world-mill.js"></script>
+        <script src="assets/plugins/apexcharts/dist/apexcharts.min.js"></script>
+        <script>
+            let visits = [4682, 10863, 5272, 10828, 3858, 6287, 4082, 14554, 31166]
+                , hits = [70863, 71272, 72828, 70058, 72287, 71882, 70467, 183141, 18847];
+            console.log(hits);
+            var randomNo = function () {
+                return Math.floor(60 * Math.random()) + 30
+            }
+                , handleRenderChart = function () {
+                    Apex = {
+                        title: {
+                            style: {
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                fontFamily: app.font.bodyFontfamily,
+                                color: app.color.bodyColor
+                            }
+                        },
+                        legend: {
+                            fontFamily: app.font.bodyFontfamily,
+                            labels: {
+                                colors: app.color.bodyColor
+                            }
+                        },
+                        tooltip: {
+                            style: {
+                                fontSize: "12px",
+                                fontFamily: app.font.bodyFontfamily
+                            }
+                        },
+                        grid: {
+                            borderColor: "rgba(" + app.color.bodyColorRgb + ", .25)"
+                        },
+                        dataLabels: {
+                            style: {
+                                fontSize: "12px",
+                                fontFamily: app.font.bodyFontfamily,
+                                fontWeight: "bold",
+                                colors: void 0
+                            }
+                        },
+                        xaxis: {
+                            axisBorder: {
+                                show: !0,
+                                color: "rgba(" + app.color.bodyColorRgb + ", .25)",
+                                height: 1,
+                                width: "100%",
+                                offsetX: 0,
+                                offsetY: -1
+                            },
+                            axisTicks: {
+                                show: !0,
+                                borderType: "solid",
+                                color: "rgba(" + app.color.bodyColorRgb + ", .25)",
+                                height: 6,
+                                offsetX: 0,
+                                offsetY: 0
+                            },
+                            labels: {
+                                style: {
+                                    colors: app.color.bodyColor,
+                                    fontSize: "12px",
+                                    fontFamily: app.font.bodyFontfamily,
+                                    fontWeight: 400,
+                                    cssClass: "apexcharts-xaxis-label"
+                                }
+                            }
+                        },
+                        yaxis: {
+                            labels: {
+                                style: {
+                                    colors: app.color.bodyColor,
+                                    fontSize: "12px",
+                                    fontFamily: app.font.bodyFontfamily,
+                                    fontWeight: 400,
+                                    cssClass: "apexcharts-xaxis-label"
+                                }
+                            }
+                        }
+                    };
+                    var p = 0
+                        , d = [];
+                    [].slice.call(document.querySelectorAll('[data-render="apexchart"]')).map(function (o) {
+                        var t = o.getAttribute("data-type")
+                            , a = o.getAttribute("data-height")
+                            , e = o.getAttribute("data-title")
+                            , r = []
+                            , l = {}
+                            , n = []
+                            , i = {
+                                show: !1
+                            };
+                        "bar" == t ? (l = {
+                            bar: {
+                                horizontal: !(r = [app.color.theme]),
+                                columnWidth: "65%",
+                                endingShape: "rounded"
+                            }
+                        },
+                            n = [{
+                                name: e,
+                                data: visits
+                            }]) : "pie" == t ? (r = ["rgba(" + app.color.themeRgb + ", 1)", "rgba(" + app.color.themeRgb + ", .75)", "rgba(" + app.color.themeRgb + ", .5)"],
+                                n = [randomNo(), randomNo(), randomNo()]) : "donut" == t ? (r = ["rgba(" + app.color.themeRgb + ", .15)", "rgba(" + app.color.themeRgb + ", .35)", "rgba(" + app.color.themeRgb + ", .55)", "rgba(" + app.color.themeRgb + ", .75)", "rgba(" + app.color.themeRgb + ", .95)"],
+                                    i = {
+                                        show: !(n = [randomNo(), randomNo(), randomNo(), randomNo(), randomNo()]),
+                                        curve: "smooth",
+                                        lineCap: "butt",
+                                        colors: "rgba(" + app.color.bodyColorRgb + ", .25)",
+                                        width: 2,
+                                        dashArray: 0
+                                    },
+                                    l = {
+                                        pie: {
+                                            donut: {
+                                                background: "transparent"
+                                            }
+                                        }
+                                    }) : "line" == t && (r = [app.color.theme],
+                                        n = [{
+                                            name: e,
+                                            data: hits
+                                        }],
+                                        i = {
+                                            curve: "straight",
+                                            width: 2
+                                        }),
+                            d[p] = new ApexCharts(o, {
+                                chart: {
+                                    height: a,
+                                    type: t,
+                                    toolbar: {
+                                        show: !1
+                                    },
+                                    sparkline: {
+                                        enabled: !0
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: !1
+                                },
+                                colors: r,
+                                stroke: i,
+                                plotOptions: l,
+                                series: n,
+                                grid: {
+                                    show: !1
+                                },
+                                tooltip: {
+                                    theme: "dark",
+                                    x: {
+                                        show: !1
+                                    },
+                                    y: {
+                                        title: {
+                                            formatter: function (o) {
+                                                return ""
+                                            }
+                                        },
+                                        formatter: o => "" + o
+                                    }
+                                },
+                                xaxis: {
+                                    labels: {
+                                        show: !1
+                                    }
+                                },
+                                yaxis: {
+                                    labels: {
+                                        show: !1
+                                    }
+                                }
+                            }),
+                            d[p].render(),
+                            p++
+                    })
+                };
+            $(document).ready(function () {
+                handleRenderChart(),
+                    document.addEventListener("theme-reload", function () {
+                        $('[data-render="apexchart"]').empty(),
+                            handleRenderChart()
+                    })
+            })
+        </script>
+        <!-- <script src="assets/js/demo/dashboard.demo.js"></script> -->
+        <script src="js/app.js" type="module"></script>
+        <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</body>
+
+</html>

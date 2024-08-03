@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Form Login For The Class Upw">
+    <meta name="author" content="ImYanz">
+    <link href="assets/css/vendor.min.css" rel="stylesheet">
+    <link href="assets/css/app.min.css" rel="stylesheet">
+</head>
+
+<body class="pace-top">
+    <div id="app" class="app app-full-height app-without-header">
+        <div class="login">
+            <div class="login-content">
+                <h1 class="text-center"><b>Login Form</b>
+                </h1>
+                <div class="text-inverse text-opacity-50 text-center mb-4">The Class UPW</div>
+                <br>
+                <div class="card">
+                    <div class="card-header fw-bold small text-center">The Class UPW</div>
+                    <div class="card-body">
+                        <div id="content" class="content">
+                            <form id="form">
+                                <div class="mb-3">
+                                    <label class="form-label">Form Login <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="text" id="text" class="form-control form-control-lg bg-inverse bg-opacity-5 mb-3" value=""
+                                        placeholder="username">
+                                    <input type="password" name="password" id="password" class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                        placeholder="password">
+                                </div>
+                                <button type="submit" value="login" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Gaskeunnn</button>
+                                <div class="text-center text-inverse text-opacity-50"> Not Members? <a href="">Click Here</a>.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- arrow -->
+                    <div class="card-arrow">
+                        <div class="card-arrow-top-left"></div>
+                        <div class="card-arrow-top-right"></div>
+                        <div class="card-arrow-bottom-left"></div>
+                        <div class="card-arrow-bottom-right"></div>
+                    </div>
+                </div>
+                </br>
+            </div>
+        </div>
+        <a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </div>
+    <script>
+        var users = [
+            { username: "user1", password: "password1" },
+            { username: "user2", password: "password2" },
+            { username: "user3", password: "password3" },
+            { username: "user4", password: "password4" },
+            { username: "user5", password: "password5" },
+            { username: "user6", password: "password6" },
+            { username: "user7", password: "password7" },
+            { username: "user8", password: "password8" },
+            { username: "user9", password: "password9" },
+            { username: "user10", password: "password10" },
+            { username: "user11", password: "password11" },
+        ];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector("form.box").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                var username = document.querySelector('text').value;
+                var password = document.querySelector('password').value;
+
+                if (username.trim() === "" || password.trim() === "") {
+                    alert("Mohon isi username dan password.");
+                    return;
+                }
+
+                var isValidUser = false;
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].username === username && users[i].password === password) {
+                        isValidUser = true;
+                        break;
+                    }
+                }
+
+                if (isValidUser) {
+                    alert("Login berhasil!");
+                    window.location.href = "index.html";
+                } else {
+                    alert("Username atau password salah. Silakan coba lagi.");
+                }
+            });
+        });
+
+            var passwordInput = document.getElementById("password");
+            var icon = document.querySelector(".toggle-password i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+        function togglePasswordVisibility() {
+                icon.classList.add("fa-eye");
+            }
+        }
+
+    </script>
+    <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/app.min.js"></script>
+</body>
+</html>

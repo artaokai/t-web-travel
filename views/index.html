@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>Im Yanz</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/assets/css/vendor.min.css" rel="stylesheet">
+    <link href="/assets/css/app.min.css" rel="stylesheet">
+    <link href="/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="app">
+        <div id="header" class="app-header">
+            <div class="desktop-toggler">
+                <button type="button" class="menu-toggler" data-toggle-class="app-sidebar-collapsed"
+                    data-dismiss-class="app-sidebar-toggled" data-toggle-target=".app">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <div class="mobile-toggler">
+                <button type="button" class="menu-toggler" data-toggle-class="app-sidebar-mobile-toggled"
+                    data-toggle-target=".app">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <div class="brand">
+                <a href="" class="brand-logo">
+                    <span class="brand-img">
+                        <span class="brand-img-text text-theme">A</span>
+                    </span>
+                    <span class="brand-text">Im Yanz</span>
+                </a>
+            </div>
+            <div class="menu">
+                <div class="menu-item dropdown">
+                    <a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app"
+                        class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-search nav-icon"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-grid-3x3-gap nav-icon"></i>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu fade dropdown-menu-end w-300px text-center p-0 mt-1">
+                        <div class="row row-grid gx-0">
+                            <div class="col-4">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalLg"
+                                    class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div class="position-relative">
+                                        <i
+                                            class="bi bi-circle-fill position-absolute text-theme top-0 mt-n2 me-n2 fs-6px d-block text-center w-100"></i>
+                                        <i class="bi bi-envelope h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Chat Box</div>
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <a href="generator" target="_blank"
+                                    class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div class="position-relative">
+                                        <i class="bi bi-robot h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Ai-Generator</div>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="game" target="_blank" class="dropdown-item text-decoration-none p-3 bg-none">
+                                    <div>
+                                        <i class="bi bi-controller h2 opacity-5 d-block my-1"></i>
+                                    </div>
+                                    <div class="fw-500 fs-10px text-inverse">Game</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="bi bi-bell nav-icon"></i>
+                        </div>
+                        <div class="menu-badge bg-theme"></div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end mt-1 w-300px fs-11px pt-1">
+                        <h6 class="dropdown-header fs-10px mb-1">NOTIFICATIONS</h6>
+                        <div class="dropdown-divider mt-1"></div>
+                        <a href="tiktok.html"
+                            class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">[Downloader Tiktok]</div>
+                                <div class="small text-inverse text-opacity-50">by yanz</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="weebs" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">[Downloader Instagram]</div>
+                                <div class="small text-inverse text-opacity-50">23 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-grid text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">THEMPLATE INSTALLATION DONE</div>
+                                <div class="small text-inverse text-opacity-50">19 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <a href="tools" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-node-plus text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">Added new features [Bing-Ai]</div>
+                                <div class="small text-inverse text-opacity-50">01 December 2023</div>
+                            </div>
+                            <div class="ps-2 fs-16px">
+                                <i class="bi bi-chevron-right"></i>
+                            </div>
+                        </a>
+                        <hr class="my-0">
+                        <div class="py-10px mb-n2 text-center">
+                            <a href="#" class="text-decoration-none fw-bold">SEE ALL</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item dropdown dropdown-mobile-full">
+                    <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
+                        <div class="menu-img online">
+                            <img src="/assets/img/user/profile.jpg" alt="Profile" height="60">
+                        </div>
+                        <div class="menu-text d-sm-block d-none w-170px">
+                            <span>[ Api's Skizo || Team ] </span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalKey"
+                            class="dropdown-item d-flex align-items-center">
+                            Change Apikey <i class="bi bi-key ms-auto text-theme fs-16px my-n1"></i>
+                        </button>
+                        <a class="dropdown-item d-flex align-items-center" href="pricing">
+                            Register<i class="fas fa-user-plus ms-auto text-theme fs-16px my-n1"></i>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item d-flex align-items-center" href="login.html">
+                            Login <i class="bi bi-toggle-on ms-auto text-theme fs-16px my-n1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <form class="menu-search" method="POST" name="header_search_form">
+                <div class="menu-search-container">
+                    <div class="menu-search-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <div class="menu-search-input">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search menu...">
+                    </div>
+                    <div class="menu-search-icon">
+                        <a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app">
+                            <i class="bi bi-x-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- start body -->
+        <div id="sidebar" class="app-sidebar">
+            <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+                <div class="menu">
+                    <div class="menu-header">Navigation</div>
+                    <div class="menu-item active">
+                        <a href="/" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-cpu"></i>
+                            </span>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="travel" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </span>
+                            <span class="menu-text">Travel</span>
+                        </a>
+                    </div>
+                    <div class="menu-item has-sub">
+                        <a href="" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </span>
+                            <span class="menu-text">Information</span>
+                            <span class="menu-caret">
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="menu-submenu">
+                            <div class="menu-item">
+                                <a href="https://whatsapp.com/channel/0029VaJd9oP5Ui2OKgSGRL1f" class="menu-link">
+                                    <span class="menu-text">Whatsapp Channel</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="https://chat.whatsapp.com/G9XFKRSrk1bKK0wiXf4jOl" class="menu-link">
+                                    <span class="menu-text">Whatsapp Community</span>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="https://chat.whatsapp.com/JuM0uBfW3N01mXsD7ZSisN" class="menu-link">
+                                    <span class="menu-text">Whatsapp Groups</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-header">Others</div>
+                    <div class="menu-item has-sub">
+                        <a href="javascript:;" class="menu-link">
+                            <div class="menu-icon">
+                                <i class="bi bi-images"></i>
+                                <span
+                                    class="w-5px h-5px rounded-3 bg-theme position-absolute top-0 end-0 mt-3px me-3px"></span>
+                            </div>
+                            <div class="menu-text d-flex align-items-center">Pictures</div>
+                            <span class="menu-caret">
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="menu-submenu">
+                            <div class="menu-item">
+                                <a href="gallery.html" class="menu-link">
+                                    <div class="menu-text">Null</div>
+                                </a>
+                            </div>
+                            <div class="menu-item">
+                                <a href="nsfw" class="menu-link">
+                                    <div class="menu-text">Null</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-divider"></div>
+                    <div class="menu-header">Admin Webs</div>
+                    <div class="menu-item">
+                        <a href="https://wa.me/+62838-5378-7406?text=/Assalamualaikum" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </span>
+                            <span class="menu-text">BotAdmin</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="https://github.com/" target="_blank" class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-github"></i>
+                            </span>
+                            <span class="menu-text">Scripty Bot</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-3 px-4 mt-auto">
+                    <a href="https://saweria.co/ImYanz15" target="_blank" class="btn d-block btn-outline-theme">
+                        <i class="fa fa-code-branch me-2 ms-n2 opacity-5"></i>
+                        Donation
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="app-sidebar-mobile-backdrop" data-toggle-target=".app"
+            data-toggle-class="app-sidebar-mobile-toggled"></button>
+        <div id="content" class="app-content">
+            <!-- start content -->
+            <div class="row">
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card text-center mb-3">
+                        <div class="card-body">
+                            <div class="img">
+                                <img src="/assets/css/images/tes.jpg" class="object-fit-cover" height="100" width="100">
+                            </div>
+                        </div>
+                        <div class="card-footer fw-bold small">Im Yanz</div>
+                        <!-- arrow -->
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex fw-bold small mb-3">
+                                <span class="flex-grow-1">Month of Ramadan </span>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7">
+                                    <h3 class="mb-0 time" id="time">00:00:00</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex fw-bold small mb-3">
+                                <span class="flex-grow-1">Time </span>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7">
+                                    <h3 class="mb-0 jam" id="jam">00:00:00</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex fw-bold small mb-3">
+                                <span class="flex-grow-1">Total Request</span>
+                                <a href="#" data-toggle="card-expand"
+                                    class="text-inverse text-opacity-50 text-decoration-none">
+                                    <i class="bi bi-fullscreen"></i>
+                                </a>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7">
+                                    <h3 class="mb-0">1.251.968 </h3>
+                                </div>
+                                <div class="col-5">
+                                    <div class="mt-n2" data-render="apexchart" data-type="line" data-title="Visitors"
+                                        data-height="30"></div>
+                                </div>
+                            </div>
+                            <div class="small text-inverse text-opacity-50 text-truncate">
+                                <i class="fa fa-chevron-up fa-fw me-1"></i>
+                                136.00% more than last week<br>
+                                <!-- <i class="far fa-hdd fa-fw me-1"></i> 10.5% from total usage <br>
+						<i class="far fa-hand-point-up fa-fw me-1"></i> 2MB per visit -->
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex fw-bold small mb-3">
+                                <span class="flex-grow-1">Terms and Conditions:</span>
+                                <a href="#" data-toggle="card-expand"
+                                    class="text-inverse text-opacity-50 text-decoration-none">
+                                    <i class="bi bi-fullscreen"></i>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-center">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <ul>
+                                                    <li>Don't flood requests, the web admin can immediately change the
+                                                        web rules if an error occurs.</li>
+                                                    <li>It is strictly forbidden to share your apikey, if it gets
+                                                        caught. God willing, it will be deleted :)</li>
+                                                    <li>Admin is not responsible for what you do when using this
+                                                        website.</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex fw-bold small mb-3">
+                                <span class="flex-grow-1">Thanks</span>
+                                <a href="#" data-toggle="card-expand"
+                                    class="text-inverse text-opacity-50 text-decoration-none">
+                                    <i class="bi bi-fullscreen"></i>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3 mb-lg-0">
+                                    <div class="d-flex align-items-center">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                Thanks to all of you who have truly provided your valuable help and
+                                                contribution in this project.
+                                                <ul>
+                                                    <li>Allah SWT</li>
+                                                    <li>Aprilia</li>
+                                                    <li>Zeiyy ( base )</li>
+                                                    <li>BE ( Sekrep )</li>
+                                                </ul>
+                                            </li>
+                                            <li>And all of you who have used the web wisely and always supported me.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <div class="card-arrow-top-left"></div>
+                            <div class="card-arrow-top-right"></div>
+                            <div class="card-arrow-bottom-left"></div>
+                            <div class="card-arrow-bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end content -->
+        </div>
+        <!-- end body -->
+        <a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+        <!-- start popup -->
+        <div class="modal fade" id="modalLg">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Messages</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-body text-inverse text-center">
+                                <div class="fs-16px fw-bold">Space Chat</div>
+                                <div class="fs-13px mb-3">Let's Talking</div>
+                                <iframe src="https://www3.cbox.ws/box/?boxid=3530812&boxtag=Pdvpct" width="100%"
+                                    height="450" allowtransparency="yes" allow="autoplay" frameborder="0"
+                                    marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+                            </div>
+                            <div class="list-group">
+                                <div class="list-group-item border-top-0 rounded-top-0 d-flex align-items-center p-3">
+                                    <div
+                                        class="w-40px h-40px bg-inverse bg-opacity-25 d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </div>
+                                    <div class="flex-fill px-3">
+                                        <div class="fw-bold">Total Visitors</div>
+                                        <div class="small text-inverse text-opacity-50">This Month</div>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-0">20.155 </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- card-arrow -->
+                            <div class="card-arrow">
+                                <div class="card-arrow-top-left"></div>
+                                <div class="card-arrow-top-right"></div>
+                                <div class="card-arrow-bottom-left"></div>
+                                <div class="card-arrow-bottom-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalP">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">My Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-pane fade show active">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5>You Need Login To See Your Account!!!</h5>
+                                </div>
+                                <div class="card-arrow">
+                                    <div class="card-arrow-top-left"></div>
+                                    <div class="card-arrow-top-right"></div>
+                                    <div class="card-arrow-bottom-left"></div>
+                                    <div class="card-arrow-bottom-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-cover fade" id="modalKey">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="changekey_" method="POST">
+                            <h1 class="text-center">Change Key</h1>
+                            <div class="text-inverse text-opacity-50 text-center mb-4">You need Secret Key to Change
+                                your Api Key.</div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    APIKEY <span class="text-danger">*</span>
+                                </label>
+                                <input name="key" type="text"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="your apikey" required>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex">
+                                    <label class="form-label">
+                                        SECRET KEY <span class="text-danger">*</span>
+                                    </label>
+                                    <a href="https://wa.me/62815850269230?text=#apikey+yourkey"
+                                        class="ms-auto text-inverse text-decoration-none text-opacity-50">Forgot Your
+                                        Secret Key?</a>
+                                </div>
+                                <input type="text" name="secretKey"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="Your Secret Key" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    NEW KEY <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="newkey"
+                                    class="form-control form-control-lg bg-inverse bg-opacity-5" value=""
+                                    placeholder="New Key" required>
+                            </div>
+                            <button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Change
+                                Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end popup -->
+        <!-- <script src="assets/js/demo/dashboard.demo.js"></script> -->
+        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+        <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</body>
+
+</html>
