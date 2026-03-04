@@ -28,16 +28,16 @@ jobs:
           mkdir -p release
           cp Jellyfin.Plugin.AniWorld/bin/Release/net9.0/Jellyfin.Plugin.AniWorld.dll release/
           cp Jellyfin.Plugin.AniWorld/meta.json release/
-          cd release && zip ../aniworld-downloader-${{ github.event.release.tag_name }}.zip *
+          cd release && zip ../jellyfin-aniworld-downloader-${{ github.event.release.tag_name }}.zip *
 
       - name: Compute checksum
         id: checksum
-        run: echo "md5=$(md5sum aniworld-downloader-${{ github.event.release.tag_name }}.zip | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+        run: echo "md5=$(md5sum jellyfin-aniworld-downloader-${{ github.event.release.tag_name }}.zip | awk '{print $1}')" >> "$GITHUB_OUTPUT"
 
       - name: Upload release asset
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ github.event.release.tag_name }}" "aniworld-downloader-${{ github.event.release.tag_name }}.zip" --clobber
+        run: gh release upload "${{ github.event.release.tag_name }}" "jellyfin-aniworld-downloader-${{ github.event.release.tag_name }}.zip" --clobber
 
       - name: Update manifest
         env:
@@ -45,10 +45,10 @@ jobs:
           CHECKSUM: ${{ steps.checksum.outputs.md5 }}
           REPO: ${{ github.repository }}
         run: |
-          VERSION="${TAG#v}"
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          SOURCE_URL="https://github.com/${REPO}/releases/download/${TAG}/aniworld-downloader-${TAG}.zip"
-          TARGET_ABI=$(python3 -c "import json; print(json.load(open('Jellyfin.Plugin.AniWorld/meta.json'))['targetAbi'])")
+          export VERSION="${TAG#v}"
+          export TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          export SOURCE_URL="https://github.com/${REPO}/releases/download/${TAG}/jellyfin-aniworld-downloader-${TAG}.zip"
+          export TARGET_ABI=$(python3 -c "import json; print(json.load(open('Jellyfin.Plugin.AniWorld/meta.json'))['targetAbi'])")
 
           python3 << 'PYEOF'
           import json, os
