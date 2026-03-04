@@ -2,8 +2,9 @@
 
 A Jellyfin plugin for searching and downloading anime from [aniworld.to](https://aniworld.to), directly inside Jellyfin's web interface.
 
-<!-- TODO: Add a screenshot of the main plugin page (search tab with results visible) -->
-<!-- ![Main Page](screenshots/main.png) -->
+Series View |
+:-------------------------:|
+![Series View](screenshots/series.png) |
 
 ## Features
 
@@ -16,9 +17,6 @@ A Jellyfin plugin for searching and downloading anime from [aniworld.to](https:/
 - **Download history** persisted in SQLite (survives restarts)
 - **Auto library scan** so new episodes show up immediately
 - **Jellyfin-compatible naming**: `Series Name/Season 01/Series Name - S01E01 - Episode Title.mkv`
-
-<!-- TODO: Add a screenshot of the series detail view (cover, genres, season pills, episode list) -->
-<!-- ![Series View](screenshots/series.png) -->
 
 ## Looking for more?
 
