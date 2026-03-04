@@ -11,7 +11,6 @@ export default function (view, params) {
             view.querySelector('#txtMaxDownloads').value = config.MaxConcurrentDownloads || 2;
             view.querySelector('#txtMaxRetries').value = config.MaxRetries != null ? config.MaxRetries : 3;
             view.querySelector('#chkAutoScan').checked = config.AutoScanLibrary !== false;
-            view.querySelector('#chkCheckForUpdates').checked = config.CheckForUpdates !== false;
             Dashboard.hideLoadingMsg();
         });
     }
@@ -26,7 +25,6 @@ export default function (view, params) {
             config.MaxConcurrentDownloads = parseInt(view.querySelector('#txtMaxDownloads').value, 10) || 2;
             config.MaxRetries = parseInt(view.querySelector('#txtMaxRetries').value, 10) || 0;
             config.AutoScanLibrary = view.querySelector('#chkAutoScan').checked;
-            config.CheckForUpdates = view.querySelector('#chkCheckForUpdates').checked;
 
             ApiClient.updatePluginConfiguration(pluginId, config).then(function () {
                 Dashboard.processPluginConfigurationUpdateResult();

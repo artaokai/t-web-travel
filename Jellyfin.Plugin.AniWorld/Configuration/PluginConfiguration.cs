@@ -47,10 +47,4 @@ public class PluginConfiguration : BasePluginConfiguration
     /// </summary>
     public bool AutoScanLibrary { get; set; } = true;
 
-    /// <summary>
-    /// Gets or sets whether to check for plugin updates on page load.
-    /// Queries the Gitea releases API for newer versions.
-    /// </summary>
-    public bool CheckForUpdates { get; set; } = true;
-
 }
