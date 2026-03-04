@@ -35,17 +35,33 @@ public static class PathHelper
     /// <summary>
     /// Sanitizes a file/folder name by removing invalid and problematic characters.
     /// Strips characters that cause issues on Windows, SMB shares, and some media players:
-    /// : ? ! * " &lt; &gt; | in addition to OS-level invalid chars.
+    /// : ? ! * " &lt; &gt; | [ ] in addition to OS-level invalid chars.
+    /// Normalizes unicode quotes and dashes to their ASCII equivalents.
     /// </summary>
     public static string SanitizeFileName(string name)
     {
+        // Normalize unicode typography to ASCII equivalents
+        var normalized = name
+            .Replace('\u2018', '\'')  // LEFT SINGLE QUOTATION MARK → apostrophe
+            .Replace('\u2019', '\'')  // RIGHT SINGLE QUOTATION MARK → apostrophe
+            .Replace('\u201A', '\'')  // SINGLE LOW-9 QUOTATION MARK → apostrophe
+            .Replace("\u201C", string.Empty)  // LEFT DOUBLE QUOTATION MARK → remove
+            .Replace("\u201D", string.Empty)  // RIGHT DOUBLE QUOTATION MARK → remove
+            .Replace('\u2013', '-')   // EN DASH → hyphen
+            .Replace('\u2014', '-')   // EM DASH → hyphen
+            .Replace('\u2026', '.');  // HORIZONTAL ELLIPSIS → period
+
         var invalid = Path.GetInvalidFileNameChars();
-        var extraInvalid = new[] { ':', '?', '!', '*', '"', '<', '>', '|' };
-        var sanitized = new string(name
+        var extraInvalid = new[] { ':', '?', '!', '*', '"', '<', '>', '|', '[', ']' };
+        var sanitized = new string(normalized
             .Where(c => !invalid.Contains(c) && !extraInvalid.Contains(c))
             .ToArray());
+
+        // Collapse multiple spaces/dashes, trim trailing punctuation
         sanitized = Regex.Replace(sanitized, @"\s{2,}", " ");
-        return string.IsNullOrWhiteSpace(sanitized) ? "Unknown" : sanitized.Trim();
+        sanitized = Regex.Replace(sanitized, @"-{2,}", "-");
+        sanitized = sanitized.Trim().TrimEnd('.', '-', ' ');
+        return string.IsNullOrWhiteSpace(sanitized) ? "Unknown" : sanitized;
     }
 
     /// <summary>
@@ -124,7 +140,9 @@ public static class PathHelper
             var safeTitle = SanitizeFileName(episodeTitle);
             if (safeTitle.Length > 80)
             {
-                safeTitle = safeTitle[..77] + "...";
+                // Truncate at word boundary, trim trailing punctuation
+                safeTitle = safeTitle[..77].TrimEnd(' ', '-', ',', '.', ';');
+                safeTitle += "...";
             }
 
             var newName = $"{match.Groups[1].Value} - {safeTitle}{ext}";

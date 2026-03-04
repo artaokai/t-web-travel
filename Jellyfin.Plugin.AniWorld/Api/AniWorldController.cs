@@ -26,6 +26,8 @@ namespace Jellyfin.Plugin.AniWorld.Api;
 [Produces(MediaTypeNames.Application.Json)]
 public class AniWorldController : ControllerBase
 {
+    private const string RepositoryUrl = "http://192.168.1.14:3000/SiroxCW/jellyfin-plugin-aniworld";
+
     private readonly AniWorldService _aniWorldService;
     private readonly DownloadService _downloadService;
     private readonly DownloadHistoryService _historyService;
@@ -498,10 +500,9 @@ public class AniWorldController : ControllerBase
     {
         var config = Plugin.Instance?.Configuration;
         var currentVersion = Plugin.Instance?.Version?.ToString() ?? "0.0.0.0";
-        var repoUrl = config?.RepositoryUrl ?? string.Empty;
         var checkEnabled = config?.CheckForUpdates ?? true;
 
-        if (!checkEnabled || string.IsNullOrEmpty(repoUrl))
+        if (!checkEnabled)
         {
             return Ok(new
             {
@@ -509,7 +510,7 @@ public class AniWorldController : ControllerBase
                 latestVersion = (string?)null,
                 updateAvailable = false,
                 checkEnabled = false,
-                repositoryUrl = repoUrl,
+                repositoryUrl = RepositoryUrl,
             });
         }
 
@@ -521,7 +522,7 @@ public class AniWorldController : ControllerBase
         {
             // Extract the API base from the repo URL
             // e.g. http://192.168.1.14:3000/SiroxCW/repo -> http://192.168.1.14:3000/api/v1/repos/SiroxCW/repo
-            var uri = new Uri(repoUrl.TrimEnd('/'));
+            var uri = new Uri(RepositoryUrl.TrimEnd('/'));
             var apiUrl = $"{uri.Scheme}://{uri.Authority}/api/v1/repos{uri.AbsolutePath}/releases?limit=1";
 
             var client = _httpClientFactory.CreateClient("AniWorldUpdate");
@@ -561,7 +562,7 @@ public class AniWorldController : ControllerBase
             latestVersion,
             updateAvailable,
             checkEnabled = true,
-            repositoryUrl = repoUrl,
+            repositoryUrl = RepositoryUrl,
             releaseUrl,
         });
     }

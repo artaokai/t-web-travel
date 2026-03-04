@@ -53,9 +53,4 @@ public class PluginConfiguration : BasePluginConfiguration
     /// </summary>
     public bool CheckForUpdates { get; set; } = true;
 
-    /// <summary>
-    /// Gets or sets the repository URL for the source code and update checks.
-    /// Defaults to the Gitea repository.
-    /// </summary>
-    public string RepositoryUrl { get; set; } = "http://192.168.1.14:3000/SiroxCW/jellyfin-plugin-aniworld";
 }
