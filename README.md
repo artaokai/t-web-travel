@@ -96,7 +96,7 @@ After installing, go to **Dashboard > Plugins > AniWorld Downloader** to configu
 
 ## Requirements
 
-- Jellyfin 10.11.x
+- Jellyfin 10.9.0 or newer
 - .NET 9.0 (for building from source)
 - ffmpeg (bundled with Jellyfin)
 
