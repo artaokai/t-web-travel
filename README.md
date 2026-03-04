@@ -1,113 +1,118 @@
-# Jellyfin AniWorld Downloader Plugin
+# Jellyfin AniWorld Downloader
 
-A Jellyfin plugin that lets you search and download anime from [aniworld.to](https://aniworld.to) directly within Jellyfin's web UI. Fully integrated — no external tools needed.
+A Jellyfin plugin for searching and downloading anime from [aniworld.to](https://aniworld.to), directly inside Jellyfin's web interface.
 
-## Status: ✅ Working
-
-Downloads are fully functional. Tested with Solo Leveling S01E01-E02 via VOE and Vidmoly providers. Files download to proper Jellyfin-compatible naming (`Series Name/Season XX/Series Name - SXXEXX.mkv`).
+<!-- TODO: Add a screenshot of the main plugin page (search tab with results visible) -->
+<!-- ![Main Page](screenshots/main.png) -->
 
 ## Features
 
-- **🔍 Search** — Find anime on aniworld.to from within Jellyfin
-- **📺 Browse** — View series info with covers, genres, seasons, and episode lists
-- **⬇️ Single Download** — Download individual episodes with provider/language selection
-- **📦 Batch Download** — Download all episodes in a season with one click
-- **🎛️ Multiple Providers** — VOE (recommended), Vidmoly, Vidoza
-- **🌐 Multiple Languages** — German Dub, English Sub, German Sub
-- **📊 Download Manager** — Real-time progress tracking, cancel, clear completed
-- **🎬 FFmpeg Integration** — Uses Jellyfin's bundled ffmpeg for HLS→MKV conversion
-- **📁 Smart Naming** — Auto-organizes into `Series/Season XX/Series - SXXEXX.mkv`
+- **Search** for anime on aniworld.to from within Jellyfin
+- **Browse** popular and newly added titles with cover art
+- **Download** individual episodes, full seasons, or entire series
+- **Language options**: German Dub, English Sub, German Sub
+- **Download manager** with real-time progress, cancel, retry, and batch operations
+- **Automatic retries** with exponential backoff and provider fallback
+- **Download history** persisted in SQLite (survives restarts)
+- **Auto library scan** so new episodes show up immediately
+- **Jellyfin-compatible naming**: `Series Name/Season 01/Series Name - S01E01 - Episode Title.mkv`
 
-## Architecture
+<!-- TODO: Add a screenshot of the series detail view (cover, genres, season pills, episode list) -->
+<!-- ![Series View](screenshots/series.png) -->
 
-```
-Jellyfin.Plugin.AniWorld/
-  Plugin.cs                          # Plugin entry point
-  PluginServiceRegistrator.cs        # DI service registration
-  Configuration/
-    PluginConfiguration.cs           # Settings (download path, language, provider)
-  Services/
-    AniWorldService.cs               # Core scraper (search, series, episodes, providers)
-    DownloadService.cs               # Download manager with ffmpeg
-  Extractors/
-    IStreamExtractor.cs              # Extractor interface
-    VoeExtractor.cs                  # VOE stream URL extraction
-    VidozaExtractor.cs               # Vidoza stream URL extraction
-    VidmolyExtractor.cs              # Vidmoly stream URL extraction
-  Api/
-    AniWorldController.cs            # REST API endpoints
-  Web/
-    aniworld.html                    # Main plugin page (search + downloads)
-    aniworld.js                      # Main page JavaScript
-    config.html                      # Configuration page
-    config.js                        # Configuration JavaScript
-```
+## Looking for more?
 
-## API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/AniWorld/Search?query=` | Search for anime |
-| GET | `/AniWorld/Series?url=` | Get series information |
-| GET | `/AniWorld/Episodes?url=` | Get episode list for a season |
-| GET | `/AniWorld/Episode?url=` | Get episode details with provider links |
-| POST | `/AniWorld/Download` | Start a download |
-| GET | `/AniWorld/Downloads` | List active downloads |
-| GET | `/AniWorld/Downloads/{id}` | Get download status |
-| DELETE | `/AniWorld/Downloads/{id}` | Cancel a download |
-
-## How It Works
-
-1. **Search**: Uses aniworld.to's AJAX search API (`POST /ajax/search`)
-2. **Scraping**: Parses series/season/episode pages to extract provider links
-3. **Provider Resolution**: Follows aniworld.to redirect URLs to provider embed pages
-4. **Stream Extraction**: Each provider has a dedicated extractor:
-   - **VOE**: Decodes obfuscated JSON (ROT13 + junk removal + base64 + char shift) to get HLS URL
-   - **Vidoza**: Extracts MP4 URL from source tags
-   - **Vidmoly**: Extracts HLS URL from JavaScript sources
-5. **Download**: Uses ffmpeg to download HLS streams, saving as MKV
+This plugin is a lightweight downloader built into Jellyfin. If you need a standalone tool with its own web UI, more configuration options, and additional features, check out [AniWorld-Downloader](https://github.com/phoenixthrush/AniWorld-Downloader) by phoenixthrush.
 
 ## Installation
 
-### Manual Installation
+### Plugin Repository (recommended)
 
-1. Build the plugin:
-   ```bash
-   cd Jellyfin.Plugin.AniWorld
-   dotnet build --configuration Release
+1. In Jellyfin, go to **Dashboard > Plugins > Repositories**
+2. Add a new repository with this URL:
    ```
+   https://raw.githubusercontent.com/SiroxCW/Jellyfin-AniWorld-Downloader/main/manifest.json
+   ```
+3. Go to **Catalog**, find **AniWorld Downloader**, and click Install
+4. Restart Jellyfin
 
-2. Copy to Jellyfin plugins directory:
-   ```bash
-   mkdir -p /var/lib/jellyfin/plugins/AniWorldDownloader
-   cp bin/Release/net9.0/Jellyfin.Plugin.AniWorld.dll /var/lib/jellyfin/plugins/AniWorldDownloader/
-   cp meta.json /var/lib/jellyfin/plugins/AniWorldDownloader/
-   ```
+Updates will show up automatically in the plugin catalog.
 
-3. Restart Jellyfin:
-   ```bash
-   sudo systemctl restart jellyfin
+### Manual Install
+
+1. Download the latest release `.zip` from [Releases](https://github.com/SiroxCW/Jellyfin-AniWorld-Downloader/releases)
+2. Extract it to your Jellyfin plugins directory:
    ```
+   /var/lib/jellyfin/plugins/AniWorldDownloader/
+   ```
+   The folder should contain `Jellyfin.Plugin.AniWorld.dll` and `meta.json`.
+3. Restart Jellyfin.
+
+### Build from Source
+
+```bash
+cd Jellyfin.Plugin.AniWorld
+dotnet build --configuration Release
+```
+
+Then copy the output:
+
+```bash
+mkdir -p /var/lib/jellyfin/plugins/AniWorldDownloader
+cp bin/Release/net9.0/Jellyfin.Plugin.AniWorld.dll /var/lib/jellyfin/plugins/AniWorldDownloader/
+cp meta.json /var/lib/jellyfin/plugins/AniWorldDownloader/
+sudo systemctl restart jellyfin
+```
 
 ## Configuration
 
-After installation, go to **Dashboard > Plugins > AniWorld Downloader** to configure:
+After installing, go to **Dashboard > Plugins > AniWorld Downloader** to configure:
 
-- **Download Path** - Where to save downloaded anime (should be a Jellyfin library path)
-- **Preferred Language** - Default language (German Dub / English Sub / German Sub)
-- **Preferred Provider** - Default provider (VOE recommended)
-- **Naming Template** - File naming pattern with {title}, {year}, {season}, {episode} variables
-- **Max Concurrent Downloads** - How many downloads can run simultaneously
+| Setting | Description |
+|---------|-------------|
+| Download Path | Where to save files (should point to a Jellyfin library folder) |
+| Preferred Language | Default language for downloads |
+| Preferred Provider | Default streaming provider (VOE is recommended) |
+| Fallback Provider | Backup provider if the primary one fails after all retries |
+| Max Concurrent Downloads | How many downloads run at the same time (1-5) |
+| Max Retry Attempts | How many times to retry a failed download before giving up |
+| Auto-scan Library | Trigger a library scan when a download finishes |
+| Check for Updates | Show a banner when a new plugin version is available |
+
+<!-- TODO: Add a screenshot of the settings page -->
+<!-- ![Settings](screenshots/settings.png) -->
+
+## Usage
+
+1. Open **AniWorld Downloader** from the admin dashboard sidebar
+2. Use the **Search** tab to find an anime, or browse **Popular** / **New Releases**
+3. Click a title to see its seasons and episodes
+4. Hit **Download** on an episode, or use **Download Season** / **Download All Seasons** for batch downloads
+5. Switch to the **Downloads** tab to monitor progress
+6. Check **History** for past downloads and stats
+
+<!-- TODO: Add a screenshot of the downloads tab (showing active downloads with progress bars) -->
+<!-- ![Downloads](screenshots/downloads.png) -->
 
 ## Requirements
 
 - Jellyfin 10.11.x
-- .NET 9.0 (for building)
+- .NET 9.0 (for building from source)
 - ffmpeg (bundled with Jellyfin)
 
-## Reference
+## How It Works
 
-Inspired by [AniWorld-Downloader](https://github.com/phoenixthrush/AniWorld-Downloader) by phoenixthrush.
+1. Searches use aniworld.to's AJAX search endpoint
+2. Series, season, and episode pages are scraped to find provider links
+3. Provider redirect URLs are resolved to embed pages
+4. Each provider has a dedicated extractor that pulls out the direct stream URL
+5. ffmpeg downloads the stream and saves it as MKV
+
+Supported extractors:
+- **VOE**: Decodes obfuscated JSON (ROT13, base64, char shift) to extract HLS URLs
+- **Filemoon**: Handles both modern Byse API (AES-256-GCM) and legacy packed JS
+- **Vidmoly**: Extracts HLS URLs from JavaScript sources
+- **Vidoza**: Extracts MP4 URLs from source tags
 
 ## License
 
